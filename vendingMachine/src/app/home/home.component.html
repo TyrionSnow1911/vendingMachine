@@ -1,6 +1,6 @@
 <div class="vending-machine-dashboard">
   <div>
-    <header>COINS INFORMATION</header>
+    <header><b>COINS INFORMATION</b></header>
     <br />
     <table class="coins-information-table">
       <th>Cents</th>
@@ -62,21 +62,21 @@
 
   <div>
     <br />
-    <header>PRODUCTS INFORMATION</header>
+    <header><b>PRODUCTS INFORMATION</b></header>
     <br />
     <table class="products-information-table">
       <tr>
         <td>
-          <label>COKE </label>
+          <label><b>COKE </b></label>
 
           <div>
             <span class="coke-quantity"
-              >(placeholder)
+              >{{ cokeQuantityAvailable }}
               <span id="coke-display" style="font-size: 12pt"
                 >drinks available, Cost=</span
               ></span
             >
-            <span class="coke-cost"> (placeholder) </span>
+            <span class="coke-cost"> {{ cokeCost }} </span>
           </div>
         </td>
         <td>
@@ -90,15 +90,15 @@
       <br />
       <tr>
         <td>
-          <label>PEPSI </label>
+          <label><b>PEPSI </b></label>
           <div>
             <span class="pepsi-quantity"
-              >(placeholder)
+              >{{ pepsiQuantityAvailable }}
               <span class="pepsi-display" style="font-size: 12pt"
                 >drinks available, Cost=</span
               ></span
             >
-            <span class="pepsi-cost"> (placeholder) </span>
+            <span class="pepsi-cost"> {{ pepsiCost }} </span>
           </div>
         </td>
         <td>
@@ -109,16 +109,38 @@
           </form>
         </td>
       </tr>
+      <br />
+      <tr>
+        <td>
+          <label><b>SODA </b></label>
+          <div>
+            <span class="soda-quantity"
+              >{{ sodaQuantityAvailable }}
+              <span class="soda-display" style="font-size: 12pt"
+                >drinks available, Cost=</span
+              ></span
+            >
+            <span class="soda-cost"> {{ sodaCost }} </span>
+          </div>
+        </td>
+        <td>
+          <form class="soda-input-form">
+            <br />
+            <input type="text" id="soda-input" value="" />
+            <br />
+          </form>
+        </td>
+      </tr>
     </table>
   </div>
   <div>
     <br />
     <table class="order-table">
       <td>
-        <label>ORDER TOTAL: </label>
+        <label><b>ORDER TOTAL: </b></label>
         <div>
           <span class="order-total">
-            (placeholder) <span># Cents/Dollars</span></span
+            {{ ordetTotalCost }} <span># Cents/Dollars</span></span
           >
           <div><button class="get-drinks">GET DRINKS</button></div>
         </div>
