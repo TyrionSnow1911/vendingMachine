@@ -8,3 +8,12 @@ table.order-table {
   color: red;
   font-weight: 600;
 }
+
+.vending-machine-dashboard {
+  height: 100%;
+  background-image: url("/assets/images/background-1.jpg");
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

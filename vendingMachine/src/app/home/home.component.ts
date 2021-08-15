@@ -111,15 +111,19 @@ export class HomeComponent implements OnInit {
     // validate all inputs for coins
     if (this.dimes > 0) {
       totalCoins += 10 * this.dimes;
+      this.dimesQuantity += this.dimes;
     }
     if (this.pennys > 0) {
       totalCoins += 1 * this.pennys;
+      this.pennysQuantity += this.pennys;
     }
     if (this.nickles > 0) {
       totalCoins += 5 * this.nickles;
+      this.nicklesQuantity += this.nickles;
     }
     if (this.quarters > 0) {
       totalCoins += 25 * this.quarters;
+      this.quartersQuantity += this.quarters;
     }
 
     if (totalCoins <= 0) {
@@ -157,6 +161,7 @@ export class HomeComponent implements OnInit {
 
     if (totalDrinksOrdered <= 0) {
       console.log('Please order at least 1 drink.');
+      this.sendAlert('Please order at least 1 drink.');
       return;
     }
 
@@ -181,7 +186,21 @@ export class HomeComponent implements OnInit {
     change -= this.cokeQuantityOrdered * this.cokeCost;
     change -= this.pepsiQuantityOrdered * this.pepsiCost;
     change -= this.sodaQuantityOrdered * this.sodaCost;
-    console.log('Remaining change is: %s Cents.', String(change));
+
+    // check if we can make change
+    let totalAvailableChange = 0;
+    totalAvailableChange += this.quartersQuantity * 25;
+    totalAvailableChange += this.pennysQuantity * 1;
+    totalAvailableChange += this.nickles * 5;
+    totalAvailableChange += this.dimes * 10;
+
+    if (totalAvailableChange < change) {
+      this.sendAlert('Not sufficient change in the inventory');
+      return;
+    } else {
+      console.log('Remaining change is: %s Cents.', String(change));
+      this.sendAlert(`Remaining change is: ${change} Cents.`);
+    }
 
     // calculate order total
     this.orderTotal =
