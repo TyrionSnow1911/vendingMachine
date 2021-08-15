@@ -101,6 +101,7 @@ export class HomeComponent implements OnInit {
   sendAlert(message = '') {
     this.alertService.info(message, this.alertOptions);
   }
+
   getDrinks() {
     let totalCoins = 0;
     // get all inputs for coins
@@ -221,5 +222,16 @@ export class HomeComponent implements OnInit {
     this.cokeQuantityForm.reset();
     this.pepsiQuantityForm.reset();
     this.sodaQuantityForm.reset();
+
+    // check if we are out of drinks, disable get drinks button if we dont.
+    let totalDrinksRemaining =
+      this.cokeQuantityAvailable +
+      this.pepsiQuantityAvailable +
+      this.sodaQuantityAvailable;
+    if (totalDrinksRemaining == 0) {
+      //@ts-ignore
+      document.getElementById('get-drinks').disabled = true;
+      this.sendAlert('No drinks left in inventory. Sold out.');
+    }
   }
 }
