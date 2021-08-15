@@ -198,8 +198,9 @@ export class HomeComponent implements OnInit {
       this.sendAlert('Not sufficient change in the inventory');
       return;
     } else {
-      console.log('Remaining change is: %s Cents.', String(change));
-      this.sendAlert(`Remaining change is: ${change} Cents.`);
+      this.sendAlert(
+        `Returning ${this.cokeQuantityOrdered} Cokes, ${this.pepsiQuantityOrdered} Pepsis, and ${this.sodaQuantityOrdered} Sodas. Remaining change is: ${change} Cents.`
+      );
     }
 
     // calculate order total
