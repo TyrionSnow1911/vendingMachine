@@ -140,9 +140,13 @@
         <label><b>ORDER TOTAL: </b></label>
         <div>
           <span class="order-total">
-            {{ ordetTotalCost }} <span># Cents/Dollars</span></span
+            {{ orderTotal }} <span># Cents/Dollars</span></span
           >
-          <div><button class="get-drinks">GET DRINKS</button></div>
+          <div>
+            <button mat-button (click)="getDrinks()" id="get-drinks">
+              GET DRINKS
+            </button>
+          </div>
         </div>
       </td>
     </table>
