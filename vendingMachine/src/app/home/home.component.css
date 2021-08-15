@@ -3,3 +3,8 @@ table.order-table {
   margin-right: 0px;
   margin-left: auto;
 }
+
+.alertMessage {
+  color: red;
+  font-weight: 600;
+}

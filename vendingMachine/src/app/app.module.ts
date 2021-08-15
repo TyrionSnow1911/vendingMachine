@@ -12,9 +12,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ModalComponent } from './modal/modal.component';
 import { ModalContent } from './modal-content/modal-content.component';
+import { AlertComponent } from './notifications/alert/alert.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ModalComponent, ModalContent],
+  declarations: [AppComponent, HomeComponent, ModalComponent, ModalContent, AlertComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

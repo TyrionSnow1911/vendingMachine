@@ -3,7 +3,7 @@ import { ModalComponent } from './../modal/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-
+import { AlertService } from '../services/alert/alert.service';
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
@@ -67,9 +67,15 @@ export class HomeComponent implements OnInit {
     soda: new FormControl(''),
   });
 
+  alertOptions = {
+    autoClose: true,
+    keepAfterRouteChange: true,
+  };
+
   constructor(
     private modalDialog: ModalComponent,
-    private dataService: DataService
+    private dataService: DataService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit() {
@@ -92,6 +98,9 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  sendAlert(message = '') {
+    this.alertService.info(message, this.alertOptions);
+  }
   getDrinks() {
     let totalCoins = 0;
     // get all inputs for coins
@@ -115,6 +124,7 @@ export class HomeComponent implements OnInit {
 
     if (totalCoins <= 0) {
       console.log('Insufficient funds to complete order.');
+      this.sendAlert('Insufficient funds to complete order.');
       return;
     }
 
@@ -157,6 +167,7 @@ export class HomeComponent implements OnInit {
       this.sodaQuantityOrdered > this.sodaQuantityAvailable
     ) {
       console.log('Insufficient drinks, unable to complete order.');
+      this.sendAlert('Drink is sold out, your purchase cannot be processed”');
       return;
     }
 
