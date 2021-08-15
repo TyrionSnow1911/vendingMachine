@@ -5,14 +5,15 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  private cokeQuantitySource = new BehaviorSubject<number>(0);
-  currentCokeQuantity = this.cokeQuantitySource.asObservable();
+  // order quantities
+  private cokeOrderQuantitySource = new BehaviorSubject<number>(0);
+  currentCokeOrderQuantity = this.cokeOrderQuantitySource.asObservable();
 
-  private pepsiQuantitySource = new BehaviorSubject<number>(0);
-  currentPepsiQuantity = this.pepsiQuantitySource.asObservable();
+  private pepsiOrderQuantitySource = new BehaviorSubject<number>(0);
+  currentPepsiOrderQuantity = this.pepsiOrderQuantitySource.asObservable();
 
-  private sodaQuantitySource = new BehaviorSubject<number>(0);
-  currentSodaQuantity = this.sodaQuantitySource.asObservable();
+  private sodaOrderQuantitySource = new BehaviorSubject<number>(0);
+  currentSodaOrderQuantity = this.sodaOrderQuantitySource.asObservable();
 
   private orderTotalSource = new BehaviorSubject<number>(0);
   currentOrderTotal = this.orderTotalSource.asObservable();
@@ -28,39 +29,19 @@ export class DataService {
     this.dialogStateSource.next(dialogState);
   }
 
-  getDialogState() {
-    return this.currentDialogState;
+  changeCokeOrderQuantity(quantity: number) {
+    this.cokeOrderQuantitySource.next(quantity);
   }
 
-  changeCokeQuanity(quantity: number) {
-    this.cokeQuantitySource.next(quantity);
+  changePepsiOrderQuantity(quantity: number) {
+    this.pepsiOrderQuantitySource.next(quantity);
   }
 
-  getCokeQuantity() {
-    return this.currentCokeQuantity;
-  }
-
-  changePepsiQuanity(quantity: number) {
-    this.pepsiQuantitySource.next(quantity);
-  }
-
-  getPepsiQuantity() {
-    return this.currentPepsiQuantity;
-  }
-
-  changeSodaQuanity(quantity: number) {
-    this.sodaQuantitySource.next(quantity);
-  }
-
-  getSodaQuantity() {
-    return this.currentSodaQuantity;
+  changeSodaOrderQuantity(quantity: number) {
+    this.sodaOrderQuantitySource.next(quantity);
   }
 
   changeTotalCost(cost: number) {
     this.orderTotalSource.next(cost);
-  }
-
-  getOrderTotal() {
-    return this.currentOrderTotal;
   }
 }

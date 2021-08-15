@@ -24,14 +24,14 @@ export class ModalContent {
     this.dataService.currentDialogState.subscribe(
       (dialogState) => (this.dialogState = dialogState)
     );
-    this.dataService.currentCokeQuantity.subscribe(
+    this.dataService.currentCokeOrderQuantity.subscribe(
       (cokeQuantityOrdered) => (this.cokeQuantityOrdered = cokeQuantityOrdered)
     );
-    this.dataService.currentPepsiQuantity.subscribe(
+    this.dataService.currentPepsiOrderQuantity.subscribe(
       (pepsiQuantityOrdered) =>
         (this.pepsiQuantityOrdered = pepsiQuantityOrdered)
     );
-    this.dataService.currentSodaQuantity.subscribe(
+    this.dataService.currentSodaOrderQuantity.subscribe(
       (sodaQuantityOrdered) => (this.sodaQuantityOrdered = sodaQuantityOrdered)
     );
     this.dataService.currentOrderTotal.subscribe(
@@ -43,5 +43,6 @@ export class ModalContent {
     this.activeModal.close('Close click');
     this.dialogState = false;
     this.dataService.changeDialogState(this.dialogState);
+    this.dataService.changeTotalCost(0);
   }
 }

@@ -24,14 +24,14 @@ export class ModalComponent {
     this.dataService.currentDialogState.subscribe(
       (dialogState) => (this.dialogState = dialogState)
     );
-    this.dataService.currentCokeQuantity.subscribe(
+    this.dataService.currentCokeOrderQuantity.subscribe(
       (cokeQuantityOrdered) => (this.cokeQuantityOrdered = cokeQuantityOrdered)
     );
-    this.dataService.currentPepsiQuantity.subscribe(
+    this.dataService.currentPepsiOrderQuantity.subscribe(
       (pepsiQuantityOrdered) =>
         (this.pepsiQuantityOrdered = pepsiQuantityOrdered)
     );
-    this.dataService.currentSodaQuantity.subscribe(
+    this.dataService.currentSodaOrderQuantity.subscribe(
       (sodaQuantityOrdered) => (this.sodaQuantityOrdered = sodaQuantityOrdered)
     );
     this.dataService.currentOrderTotal.subscribe(
@@ -41,12 +41,6 @@ export class ModalComponent {
   open() {
     this.dialogState = !this.dialogState;
     this.dataService.changeDialogState(this.dialogState);
-
     const modalRef = this.modalService.open(ModalContent);
-
-    // modalRef.componentInstance.cokeQuantityOrdered = this.cokeQuantityOrdered;
-    // modalRef.componentInstance.pepsiQuantityOrdered = this.pepsiQuantityOrdered;
-    // modalRef.componentInstance.sodaQuantityOrdered = this.sodaQuantityOrdered;
-    // modalRef.componentInstance.orderTotal = this.orderTotal;
   }
 }

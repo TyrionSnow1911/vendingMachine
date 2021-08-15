@@ -3,18 +3,18 @@
     <header><b>COINS INFORMATION</b></header>
     <br />
     <table class="coins-information-table">
-      <th>Cents</th>
+      <th>Dimes</th>
       <th>Penny</th>
       <th>Nickles</th>
       <th>Quarter</th>
       <tr>
         <td>
-          <form class="cents-input-form" [formGroup]="centsForm">
+          <form class="dimes-input-form" [formGroup]="dimesForm">
             <br />
             <input
               type="text"
-              formControlName="cents"
-              id="cents-input"
+              formControlName="dimes"
+              id="dimes-input"
               value=""
             />
             <br />
@@ -80,9 +80,14 @@
           </div>
         </td>
         <td>
-          <form class="coke-input-form">
+          <form [formGroup]="cokeQuantityForm" class="coke-input-form">
             <br />
-            <input type="text" id="coke-input" value="" />
+            <input
+              formControlName="coke"
+              type="text"
+              id="coke-input"
+              value=""
+            />
             <br />
           </form>
         </td>
@@ -102,9 +107,14 @@
           </div>
         </td>
         <td>
-          <form class="pepsi-input-form">
+          <form [formGroup]="pepsiQuantityForm" class="pepsi-input-form">
             <br />
-            <input type="text" id="pepsi-input" value="" />
+            <input
+              formControlName="pepsi"
+              type="text"
+              id="pepsi-input"
+              value=""
+            />
             <br />
           </form>
         </td>
@@ -124,9 +134,14 @@
           </div>
         </td>
         <td>
-          <form class="soda-input-form">
+          <form [formGroup]="sodaQuantityForm" class="soda-input-form">
             <br />
-            <input type="text" id="soda-input" value="" />
+            <input
+              formControlName="soda"
+              type="text"
+              id="soda-input"
+              value=""
+            />
             <br />
           </form>
         </td>
