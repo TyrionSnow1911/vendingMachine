@@ -59,7 +59,6 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     if (this.fade) {
       // fade out alert
-      //this.alerts.find((x) => x === alert).fade = true;
       let n = this.alerts.length;
       for (let i = 0; i < n; i++) {
         if (this.alerts[i] === alert) {

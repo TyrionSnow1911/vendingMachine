@@ -136,13 +136,13 @@ export class HomeComponent implements OnInit {
     this.cokeQuantityOrdered = this.cokeQuantityForm.value['coke'];
     this.pepsiQuantityOrdered = this.pepsiQuantityForm.value['pepsi'];
     this.sodaQuantityOrdered = this.sodaQuantityForm.value['soda'];
-    if (String(this.cokeQuantityOrdered) == '') {
+    if (String(this.cokeQuantityOrdered).length <= 0) {
       this.cokeQuantityOrdered = 0;
     }
-    if (String(this.pepsiQuantityOrdered) == '') {
+    if (String(this.pepsiQuantityOrdered).length <= 0) {
       this.pepsiQuantityOrdered = 0;
     }
-    if (String(this.sodaQuantityOrdered) == '') {
+    if (String(this.sodaQuantityOrdered).length <= 0) {
       this.sodaQuantityOrdered = 0;
     }
 
