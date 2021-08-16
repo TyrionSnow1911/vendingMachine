@@ -24,6 +24,7 @@ ng --version
 
 # Usage
 cd /git-project-folder/vendingMachine
+npm install
 ng serve
 
 # Access
