@@ -1,0 +1,175 @@
+<div class="vending-machine-dashboard">
+  <header style="font-size: x-large; text-align: center">
+    <b>VENDING MACHINE</b>
+  </header>
+  <br />
+  <br />
+  <div>
+    <header><b>COINS INFORMATION</b></header>
+    <div><alert class="alertMessage"></alert></div>
+    <br />
+    <table class="coins-information-table">
+      <th>Dimes</th>
+      <th>Penny</th>
+      <th>Nickles</th>
+      <th>Quarter</th>
+      <tr>
+        <td>
+          <form class="dimes-input-form" [formGroup]="dimesForm">
+            <br />
+            <input
+              type="text"
+              formControlName="dimes"
+              id="dimes-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+        <td>
+          <form class="penny-input-form" [formGroup]="pennysForm">
+            <br />
+            <input
+              type="text"
+              formControlName="pennys"
+              id="penny-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+        <td>
+          <form class="nickles-input-form" [formGroup]="nicklesForm">
+            <br />
+            <input
+              type="text"
+              formControlName="nickles"
+              id="nickles-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+        <td>
+          <form class="quarter-input-form" [formGroup]="quartersForm">
+            <br />
+            <input
+              type="text"
+              formControlName="quarters"
+              id="quarter-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <br />
+    <header><b>PRODUCTS INFORMATION</b></header>
+    <br />
+    <table class="products-information-table">
+      <tr>
+        <td>
+          <label><b>COKE </b></label>
+
+          <div>
+            <span class="coke-quantity"
+              >{{ cokeQuantityAvailable }}
+              <span id="coke-display" style="font-size: 12pt"
+                >drinks available, Cost=</span
+              ></span
+            >
+            <span class="coke-cost"> {{ cokeCost }} </span>
+          </div>
+        </td>
+        <td>
+          <form [formGroup]="cokeQuantityForm" class="coke-input-form">
+            <br />
+            <input
+              formControlName="coke"
+              type="text"
+              id="coke-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+      </tr>
+      <br />
+      <tr>
+        <td>
+          <label><b>PEPSI </b></label>
+          <div>
+            <span class="pepsi-quantity"
+              >{{ pepsiQuantityAvailable }}
+              <span class="pepsi-display" style="font-size: 12pt"
+                >drinks available, Cost=</span
+              ></span
+            >
+            <span class="pepsi-cost"> {{ pepsiCost }} </span>
+          </div>
+        </td>
+        <td>
+          <form [formGroup]="pepsiQuantityForm" class="pepsi-input-form">
+            <br />
+            <input
+              formControlName="pepsi"
+              type="text"
+              id="pepsi-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+      </tr>
+      <br />
+      <tr>
+        <td>
+          <label><b>SODA </b></label>
+          <div>
+            <span class="soda-quantity"
+              >{{ sodaQuantityAvailable }}
+              <span class="soda-display" style="font-size: 12pt"
+                >drinks available, Cost=</span
+              ></span
+            >
+            <span class="soda-cost"> {{ sodaCost }} </span>
+          </div>
+        </td>
+        <td>
+          <form [formGroup]="sodaQuantityForm" class="soda-input-form">
+            <br />
+            <input
+              formControlName="soda"
+              type="text"
+              id="soda-input"
+              value=""
+            />
+            <br />
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <br />
+    <table class="order-table">
+      <td>
+        <label><b>ORDER TOTAL: </b></label>
+        <div>
+          <span class="order-total">
+            {{ orderTotal }} <span># Cents/Dollars</span></span
+          >
+          <div>
+            <button mat-button (click)="getDrinks()" id="get-drinks">
+              GET DRINKS
+            </button>
+          </div>
+        </div>
+      </td>
+    </table>
+  </div>
+</div>

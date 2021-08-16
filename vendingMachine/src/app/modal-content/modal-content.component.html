@@ -1,0 +1,17 @@
+<div class="modal-dialog">
+  <div class="modal-header">
+    <h4 class="modal-title">Order Details:</h4>
+  </div>
+  <div class="modal-body">
+    <p>Cokes ordered: {{ cokeQuantityOrdered }}</p>
+    <p>Pepsi ordered: {{ pepsiQuantityOrdered }}</p>
+    <p>Sodas ordered: {{ sodaQuantityOrdered }}</p>
+    <p>Order Total: {{ orderTotal }}</p>
+  </div>
+  <br />
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeDialog()">
+      OK
+    </button>
+  </div>
+</div>
