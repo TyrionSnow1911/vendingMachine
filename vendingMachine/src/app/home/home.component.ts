@@ -128,7 +128,6 @@ export class HomeComponent implements OnInit {
     }
 
     if (totalCoins <= 0) {
-      console.log('Insufficient funds to complete order.');
       this.sendAlert('Insufficient funds to complete order.');
       return;
     }
@@ -147,9 +146,6 @@ export class HomeComponent implements OnInit {
       this.sodaQuantityOrdered = 0;
     }
 
-    console.log(this.cokeQuantityOrdered);
-    console.log(this.pepsiQuantityOrdered);
-    console.log(this.sodaQuantityOrdered);
     this.dataService.changeCokeOrderQuantity(this.cokeQuantityOrdered);
     this.dataService.changePepsiOrderQuantity(this.pepsiQuantityOrdered);
     this.dataService.changeSodaOrderQuantity(this.sodaQuantityOrdered);
@@ -161,19 +157,28 @@ export class HomeComponent implements OnInit {
       this.sodaQuantityOrdered;
 
     if (totalDrinksOrdered <= 0) {
-      console.log('Please order at least 1 drink.');
       this.sendAlert('Please order at least 1 drink.');
       return;
     }
 
     // make sure that we have enough drinks to make the purchase
-    if (
-      this.cokeQuantityOrdered > this.cokeQuantityAvailable ||
-      this.pepsiQuantityOrdered > this.pepsiQuantityAvailable ||
-      this.sodaQuantityOrdered > this.sodaQuantityAvailable
-    ) {
-      console.log('Insufficient drinks, unable to complete order.');
-      this.sendAlert('Drink is sold out, your purchase cannot be processed”');
+    if (this.cokeQuantityOrdered > this.cokeQuantityAvailable) {
+      this.sendAlert(
+        'Coke, Drink is sold out, your purchase cannot be processed'
+      );
+      return;
+    }
+
+    if (this.pepsiQuantityOrdered > this.pepsiQuantityAvailable) {
+      this.sendAlert(
+        'Pepsi, Drink is sold out, your purchase cannot be processed'
+      );
+      return;
+    }
+    if (this.sodaQuantityOrdered > this.sodaQuantityAvailable) {
+      this.sendAlert(
+        'Soda, Drink is sold out, your purchase cannot be processed'
+      );
       return;
     }
 
